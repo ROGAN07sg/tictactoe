@@ -32,5 +32,20 @@ pipeline {
                 sh 'mvn package'
             }
         }
+        stage('docker build') {
+            steps {
+                sh 'docker build -t ticimg .'
+            }
+        }
+        stage('docker run') {
+            steps {
+                sh '''
+                     docker stop ticcon || true
+                     docker rm ticcon || true
+                     docker run -d -p 8081:8080 ticcon ticimg
+                     '''
+            }
+        }
+        
     }
 }
