@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git credentialsId: 'gitcred', url: 'https://github.com/ROGAN07sg/tictactoe.git'
+                git credentialsId: 'gitcred', url: 'https://github.com/ROGAN07sg/tictactoe.git' , branch: 'main'
             }
         }
 
