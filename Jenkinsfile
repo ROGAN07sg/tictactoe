@@ -42,7 +42,7 @@ pipeline {
                 sh '''
                      docker stop ticcon || true
                      docker rm ticcon || true
-                     docker run -d -p 8081:8080 ticcon ticimg
+                     docker run -d -p 8081:8080 --name ticcon ticimg
                      '''
             }
         }
